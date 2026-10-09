@@ -4,7 +4,7 @@ Selected Georgia Tech case study work based on course assignments.
 
 ## Case Studies
 
-Case studies will be added as they are completed and reviewed.
+[Beyond the Hype of Emerging Technologies](Beyond_the_Hype_Emerging_Technologies_and_the_Risks_of_Misperception.pdf)
 
 ## Documentation Approach
 
