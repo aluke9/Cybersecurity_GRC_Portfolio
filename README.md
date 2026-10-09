@@ -12,6 +12,12 @@ and executive communication.
 - Third-party risk and regulatory readiness
 - Security analytics and executive reporting
 
+## Explore the Portfolio 
+
+- [ai-prompt-work](ai-prompt-work/)
+- [cybersecurity-case-studies](cybersecurity-case-studies/)
+- [gt-case-studies](gt-case-studies/)
+
 ## Selected Work
 
 | Project | What it demonstrates | Materials |
