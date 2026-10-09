@@ -5,7 +5,7 @@ case study research and creation, and TBD.
 
 ## Examples
 
-Examples will be added as they are completed and reviewed.
+- [Job Fit Analysis](AI_JobFitAnalysisPrompt.docx)
 
 ## Documentation Approach
 
