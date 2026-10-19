@@ -25,7 +25,8 @@ and executive communication.
 | Cyber Risk Assessment | Scenario analysis, control evaluation, and risk treatment recommendations | Coming soon |
 | Policy Exception Governance | Decision rights, compensating controls, and monitoring | Coming soon |
 | Executive Risk Reporting | Risk indicators, prioritization, and leadership communication | Coming soon |
-| AI Prompt Work
+| AI Prompt Work | Reusable AI prompts for structured practice and analysis, with an emphasis on evidence, accuracy, and professional judgment | Available Now
+| Case Studies | Past, Present, and Emerging Technology Case Studies | Available Now 
 
 ## Technical Projects
 
