@@ -24,6 +24,6 @@ Review the briefing before starting and correct any inaccurate facts.
 ## Files
 
 - [Prompt (Easy Copy Option)](./prompt.md)
-- [Detailed Prompt](./detailed-prompt.md]
+- [Detailed Prompt](./detailed-prompt.md)
 - [Candidate input template](./candidate-input-template.md)
 - [Short-answer drill](./short-answer-drill.md)
