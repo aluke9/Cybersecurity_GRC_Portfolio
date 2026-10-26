@@ -27,8 +27,8 @@ The workbook holds **12 data tables**: the 7 original control, testing, exceptio
 2. In the Navigator, each data sheet appears twice: once as a **sheet** and once as an **Excel table** with the same name. Power BI adds a number to one of them (for example `Fact_Control_Test4`). They contain the same data.
 3. Select **one version of each** of these 12 items (the table-icon versions are preferred):
 
-| Original tables | Quantitative tables (added October 23, 2026) |
-|---|---|
+| Original tables | 
+|---|
 | Dim_Asset | 
 | Dim_Business_Unit |
 | Dim_Control |
