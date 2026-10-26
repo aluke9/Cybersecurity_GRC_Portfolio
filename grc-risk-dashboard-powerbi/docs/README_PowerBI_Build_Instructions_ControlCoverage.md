@@ -9,25 +9,18 @@ Step-by-step instructions to rebuild the Power BI model from `Cyber_Risk_PowerBI
 
 ## Contents
 
-1. [Before you start](#1-before-you-start)
-2. [Import the data](#2-import-the-data)
-3. [Transform the data (Power Query)](#3-transform-the-data-power-query)
-4. [Create the Dim_Date table](#4-create-the-dim_date-table)
-5. [Model view: table relationships](#5-model-view-table-relationships)
-6. [Measures](#6-measures)
-7. [Verification values](#7-verification-values)
-8. [Report formatting standards](#8-report-formatting-standards)
-9. [Report pages](#9-report-pages)
+1. [Import the data](#2-import-the-data)
+2. [Transform the data (Power Query)](#3-transform-the-data-power-query)
+3. [Create the Dim_Date table](#4-create-the-dim_date-table)
+4. [Model view: table relationships](#5-model-view-table-relationships)
+5. [Measures](#6-measures)
+6. [Verification values](#7-verification-values)
+7. [Report formatting standards](#8-report-formatting-standards)
+8. [Report pages](#9-report-pages)
 
 ---
 
-## 1. Before you start
-
-- Save the Excel file to a permanent folder (for example `Documents\PowerBI\`). Do not open it directly from the browser's download bar: Excel opens a temporary copy (shown with a number such as `[18]` in the name) and Power BI refreshes will break later.
-- Close the Excel file before refreshing Power BI. Power BI cannot read a file Excel has locked.
-- Use a recent version of Power BI Desktop (2024 or later) so DAX query view and the `INFO.VIEW.MEASURES()` function are available.
-
-## 2. Import the data
+## 1. Import the data
 
 1. **Home > Get data > Excel workbook**, select the file.
 2. In the Navigator, each data sheet appears twice: once as a **sheet** and once as an **Excel table** with the same name. Power BI adds a number to one of them (for example `Fact_Control_Test4`). They contain the same data.
@@ -42,19 +35,19 @@ Step-by-step instructions to rebuild the Power BI model from `Cyber_Risk_PowerBI
 4. Do **not** select README, KRI_Definitions, DAX_Measures or Dashboard_Plan. These are guide sheets.
 5. Click **Transform Data** (not Load).
 
-## 3. Transform the data (Power Query)
+## 2. Transform the data (Power Query)
 
-### 3.1 Rename queries
+### 2.1 Rename queries
 
 In the **Queries** pane, right-click each query > **Rename** and remove any number suffix. The names must match exactly, because every measure refers to them:
 
 `Dim_Asset`, `Dim_Control`, `Fact_Asset_Control`, `Fact_Control_Test`, `Fact_Review_Schedule`, `Fact_Exceptions`, `Fact_Vulnerabilities`
 
-### 3.2 Check headers
+### 2.2 Check headers
 
 If any table shows `Column1`, `Column2` instead of real column names, select it and click **Home > Use First Row as Headers**. (This happened with Dim_Control during the original build.)
 
-### 3.3 Set data types
+### 2.3 Set data types
 
 Click the type icon at the left of each column header. When asked, choose **Replace current** so the existing "Changed Type" step is edited instead of a second conversion being stacked on top. Tip: Ctrl+click several columns of the same type and set them at once.
 
@@ -93,7 +86,7 @@ Click the type icon at the left of each column header. When asked, choose **Repl
 
 Use **Date**, not Date/Time, for every date column. Date/Time columns will not match the Dim_Date relationship.
 
-### 3.4 Check data quality
+### 2.4 Check data quality
 
 1. **View** tab > tick **Column quality**.
 2. **Error** must be 0% in every column. **Empty** values are expected and intentional:
@@ -107,7 +100,7 @@ Use **Date**, not Date/Time, for every date column. Date/Time columns will not m
 3. Do not replace these blanks with 0. Measures such as coverage and MTTR rely on them being blank.
 4. Column quality profiles only the first 1,000 rows by default (note at bottom left), so small differences from the percentages above are normal.
 
-### 3.5 Add sort and label columns
+### 2.5 Add sort and label columns
 
 These columns are created in Power Query, not DAX. A DAX calculated column that reads `Criticality` cannot also be used to sort `Criticality`: Power BI reports a circular dependency, because each column would depend on the other. Power Query runs before the model, so the loop never forms.
 
@@ -136,11 +129,11 @@ These columns are created in Power Query, not DAX. A DAX calculated column that 
 | System & Information Integrity | Sys & Info Integrity |
 | Identification & Authentication | Identification & Auth |
 
-### 3.6 Load
+### 2.6 Load
 
 Click **Close & Apply**.
 
-### 3.7 Column settings (after loading)
+### 2.7 Column settings (after loading)
 
 In **Table view**, select each column and set:
 
@@ -153,7 +146,7 @@ In **Table view**, select each column and set:
 
 Sort and code columns are identifiers, not quantities. With the default **Sum**, dragging one into a visual would add the numbers together and display a meaningless total.
 
-## 4. Create the Dim_Date table
+## 3. Create the Dim_Date table
 
 ### Purpose
 
@@ -194,7 +187,7 @@ ADDCOLUMNS (
 | Month | Oct 2026 | Monthly axis label |
 | Month Sort | 202610 | Helper so `Month` sorts chronologically instead of alphabetically |
 
-## 5. Model view: table relationships
+## 4. Model view: table relationships
 
 ### Step 1: Remove auto-detected fact-to-fact relationships
 
@@ -233,15 +226,15 @@ Fact_Vulnerabilities has no Control_ID, so it relates only to Dim_Asset and Dim_
 
 In Model view, every line runs from a `Dim_` table (marked **1**) to a `Fact_` table (marked **\***). If "Make this relationship active" is greyed out, a fact-to-fact relationship still exists somewhere.
 
-## 6. Measures
+## 5. Measures
 
-### 6.1 Create the measures table
+### 5.1 Create the measures table
 
 1. **Home > Enter data**, leave the grid empty, name it `_Measures`, click **Load**.
 2. For each measure: right-click **_Measures** > **New measure**, paste the formula, press Enter.
 3. Create them **in the order listed**, because later measures reference earlier ones.
 
-### 6.2 Naming convention
+### 5.2 Naming convention
 
 - **Subject first** (plural), then the descriptor: `Assets ...`, `Controls ...`, `Date ...`, `Exceptions ...`, `Reviews ...`, `Tests ...`, `Vulns ...`
 - **`%` at the end** of percentage measures
@@ -255,7 +248,7 @@ EVALUATE
 SELECTCOLUMNS ( INFO.VIEW.MEASURES (), "Name", [Name], "Expression", [Expression] )
 ```
 
-### 6.3 Date
+### 5.3 Date
 
 | Measure | Purpose |
 |---|---|
@@ -265,7 +258,7 @@ SELECTCOLUMNS ( INFO.VIEW.MEASURES (), "Name", [Name], "Expression", [Expression
 Date As Of = DATE ( 2026, 10, 20 )
 ```
 
-### 6.4 Assets
+### 5.4 Assets
 
 | Measure | Purpose |
 |---|---|
@@ -311,7 +304,7 @@ DIVIDE (
 )
 ```
 
-### 6.5 Controls
+### 5.5 Controls
 
 | Measure | Purpose |
 |---|---|
@@ -341,7 +334,7 @@ CALCULATE (
 Controls EDR Coverage % (Servers) = CALCULATE ( [Controls Coverage %], Fact_Asset_Control[Control_ID] = "CTL-05" )
 ```
 
-### 6.6 Tests
+### 5.6 Tests
 
 | Measure | Purpose |
 |---|---|
@@ -366,7 +359,7 @@ RETURN
     CALCULATE ( [Tests Failure Rate %], DATESINPERIOD ( Dim_Date[Date], d, -90, DAY ) )
 ```
 
-### 6.7 Reviews
+### 5.7 Reviews
 
 | Measure | Purpose |
 |---|---|
@@ -398,7 +391,7 @@ RETURN
     )
 ```
 
-### 6.8 Exceptions
+### 5.8 Exceptions
 
 | Measure | Purpose |
 |---|---|
@@ -428,7 +421,7 @@ CALCULATE (
 Exceptions High Residual Risk = CALCULATE ( [Exceptions Active], Fact_Exceptions[Residual_Risk] = "High" )
 ```
 
-### 6.9 Vulnerabilities
+### 5.9 Vulnerabilities
 
 | Measure | Purpose |
 |---|---|
@@ -457,7 +450,7 @@ Vulns MTTR Critical (days) =
 CALCULATE ( AVERAGE ( Fact_Vulnerabilities[Days_To_Remediate] ), Fact_Vulnerabilities[Severity] = "Critical" )
 ```
 
-### 6.10 KRI Status measures (KRIs folder)
+### 5.10 KRI Status measures (KRIs folder)
 
 **Purpose:** each returns `Green`, `Amber` or `Red` for one KRI. Thresholds live only here, so a change in risk appetite means editing one formula, not every visual.
 
@@ -512,7 +505,7 @@ Exceptions Expired Not Remediated Status = VAR v = [Exceptions Expired Not Remed
 Exceptions Expiring 30 Days Status = VAR v = [Exceptions Expiring 30 Days] + 0 RETURN SWITCH ( TRUE (), v <= 25, "Green", v <= 75, "Amber", "Red" )
 ```
 
-### 6.11 KRI Color measures (KRIs folder)
+### 5.11 KRI Color measures (KRIs folder)
 
 **Purpose:** each converts its Status into a hex color, used by conditional formatting (**fx > Format style: Field value**). Colors: Green `#2E7D32`, Amber `#A15C00`, Red `#C62828`. The Color measures never need editing when thresholds change.
 
@@ -552,14 +545,14 @@ Exceptions Expired Not Remediated Color = SWITCH ( [Exceptions Expired Not Remed
 Exceptions Expiring 30 Days Color = SWITCH ( [Exceptions Expiring 30 Days Status], "Green", "#2E7D32", "Amber", "#A15C00", "Red", "#C62828" )
 ```
 
-### 6.12 Formatting
+### 5.12 Formatting
 
 - **Format as %, 1 decimal:** Controls Coverage %, Controls EDR Coverage % (Servers), Tests Pass Rate %, Tests Failure Rate %, Tests Failure Rate 90 Days %, Reviews Overdue %, Vulns SLA Compliance %, Assets Crown Jewels With Control Gap %
 - **1 decimal:** Vulns MTTR Critical (days)
 - **Display folder `KRIs`:** all 11 Status and 11 Color measures
 - **Cards:** set **Display units** to **None** to see exact values instead of 15K / 11K
 
-## 7. Verification values
+## 6. Verification values
 
 After building, these values confirm the model is correct (original dataset, no filters applied).
 
