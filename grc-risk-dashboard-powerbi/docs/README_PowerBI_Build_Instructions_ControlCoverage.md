@@ -521,6 +521,7 @@ CALCULATE ( AVERAGE ( Fact_Vulnerabilities[Days_To_Remediate] ), Fact_Vulnerabil
 ```
 
 ### 5.10 Risk (financial quantification)
+**0.9 is an assumption built into the model where a control can remove at most 90% of the risk**
 
 Expected annual loss per asset using the Annualized Loss Expectancy (ALE) method:
 - Single Loss Expectancy: **SLE = Asset Value x Exposure Factor**
