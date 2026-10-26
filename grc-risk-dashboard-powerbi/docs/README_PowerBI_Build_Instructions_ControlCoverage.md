@@ -2,10 +2,9 @@
 
 Step-by-step instructions to rebuild the Power BI model from `Cyber_Risk_PowerBI_Dataset.xlsx`.
 
-The workbook holds **12 data tables**: the 7 original control, testing, exception and vulnerability tables, plus 5 quantitative tables added October 23, 2026 (financial risk, control cost, security incidents, phishing simulations and a business unit dimension). All data is fictional.
+The workbook holds **12 data tables**: the 7 original control, testing, exception and vulnerability tables, plus 5 quantitative tables: financial risk, control cost, security incidents, phishing simulations and a business unit dimension. All data is fictional.
 
 **Snapshot date for all status fields:** October 20, 2026
-**Canvas assumed:** 16:9, 1280 x 720
 
 ---
 
@@ -51,17 +50,19 @@ The workbook holds **12 data tables**: the 7 original control, testing, exceptio
 
 ### 2.1 Rename queries
 
-In the **Queries** pane, right-click each query > **Rename** and remove any number suffix. The names must match exactly, because every measure refers to them:
+In the **Queries** pane, right-click each query > **Rename** and remove any number suffix. 
 
 `Dim_Asset`, `Dim_Control`, `Fact_Asset_Control`, `Fact_Control_Test`, `Fact_Review_Schedule`, `Fact_Exceptions`, `Fact_Vulnerabilities`, `Dim_Business_Unit`, `Fact_Asset_Risk_Quant`, `Fact_Control_Cost`, `Fact_Security_Incidents`, `Fact_Phishing_Simulation`
 
 ### 2.2 Check headers
 
-If any table shows `Column1`, `Column2` instead of real column names, select it and click **Home > Use First Row as Headers**. (This happened with Dim_Control during the original build.)
+If any table shows `Column1`, `Column2` instead of real column names, select it and click **Home > Use First Row as Headers**. 
 
 ### 2.3 Set data types
 
 Click the type icon at the left of each column header. When asked, choose **Replace current** so the existing "Changed Type" step is edited instead of a second conversion being stacked on top. Tip: Ctrl+click several columns of the same type and set them at once.
+
+**Use **Date**, not Date/Time, for every date column. Convention: MM/DD/YYYY.** 
 
 **Dim_Asset**
 - Text: `Asset_ID`
@@ -120,7 +121,6 @@ Click the type icon at the left of each column header. When asked, choose **Repl
 - Date: `Campaign_Date`
 - Whole Number: `Emails_Sent`, `Clicked`, `Credentials_Submitted`, `Reported`
 
-Use **Date**, not Date/Time, for every date column. Date/Time columns will not match the Dim_Date relationship.
 
 ### 2.4 Check data quality
 
@@ -250,7 +250,7 @@ Notation is `Table[Column]`.
 | 3 | Fact_Review_Schedule[Asset_ID] | Dim_Asset[Asset_ID] | Auto-detected |
 | 4 | Fact_Exceptions[Asset_ID] | Dim_Asset[Asset_ID] | Auto-detected |
 | 5 | Fact_Vulnerabilities[Asset_ID] | Dim_Asset[Asset_ID] | Auto-detected |
-| 6 | Fact_Asset_Control[Control_ID] | Dim_Control[Control_ID] | Manual (after fixing Dim_Control headers) |
+| 6 | Fact_Asset_Control[Control_ID] | Dim_Control[Control_ID] | Manual |
 | 7 | Fact_Control_Test[Control_ID] | Dim_Control[Control_ID] | Manual |
 | 8 | Fact_Review_Schedule[Control_ID] | Dim_Control[Control_ID] | Manual |
 | 9 | Fact_Exceptions[Control_ID] | Dim_Control[Control_ID] | Manual |
