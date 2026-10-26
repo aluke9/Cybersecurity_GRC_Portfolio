@@ -30,18 +30,22 @@ The workbook holds **12 data tables**: the 7 original control, testing, exceptio
 
 | Original tables | Quantitative tables (added October 23, 2026) |
 |---|---|
-| Dim_Asset | Dim_Business_Unit |
-| Dim_Control | Fact_Asset_Risk_Quant |
-| Fact_Asset_Control | Fact_Control_Cost |
-| Fact_Control_Test | Fact_Security_Incidents |
-| Fact_Review_Schedule | Fact_Phishing_Simulation |
-| Fact_Exceptions | |
-| Fact_Vulnerabilities | |
+| Dim_Asset | 
+| Dim_Business_Unit |
+| Dim_Control |
+| Fact_Asset_Control | 
+| Fact_Control_Cost |
+| Fact_Control_Test | 
+| Fact_Exceptions |
+| Fact_Phishing_Simulation |
+| Fact_Review_Schedule | 
+| Fact_Security_Incidents | 
+| Fact_Asset_Risk_Quant |
+| Fact_Vulnerabilities | 
+
 
 4. Do **not** select README, KRI_Definitions, DAX_Measures or Dashboard_Plan. These are guide sheets.
 5. Click **Transform Data** (not Load).
-
-**Adding the quantitative tables to an existing model:** close Excel, save the updated workbook over the existing file (same folder, same name) and click **Home > Refresh**; existing values must not change. Then **Home > Get data > Excel workbook**, select the same file, tick **only the 5 new tables**, and click **Transform Data**.
 
 ## 2. Transform the data (Power Query)
 
