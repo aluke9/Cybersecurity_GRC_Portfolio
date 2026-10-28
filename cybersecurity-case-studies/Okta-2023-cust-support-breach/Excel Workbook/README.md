@@ -2,19 +2,19 @@
 
 ## Purpose
 
-Use this guide to understand the V3 assessment workbook and the generated monitoring report, how their identifiers relate, and where to find requirements versus evidence versus conclusions.
+Use this guide to understand the assessment workbook and the generated monitoring report, how the identifiers relate, where to find requirements versus evidence versus conclusions.
 
-This is an independent incident-informed simulation. Synthetic records, thresholds, identities, and results are not recovered Okta evidence or findings about Okta's actual controls. Preserve the original evidence. Do not mix V1/V2 records with V3.
+This is an independent incident-informed simulation. Synthetic records, thresholds, identities, and results are not recovered Okta evidence or findings about Okta's actual controls. Preserve the original evidence. 
 
-## 1. Which Excel workbook am I using?
+## 1. Excel Workbook
 
 | Workbook | Purpose | What it does not do |
 |---|---|---|
-| `Support_Control_Assessment_v3.xlsx` or its fresh replacement copy | Defines the exercise, control criteria, evidence references, and blank assessment workpapers | Does not contain an answer key or completed assessor conclusions |
+| `Support_Control_Assessment_v3.xlsx` | Defines the exercise, control criteria, evidence references, and blank assessment workpapers | Does not contain an answer key or completed assessor conclusions |
 | `Monitoring_Evidence_Review.xlsx` | Presents calculated DET-01 and DET-02 event/receipt/alert results and supporting reference tables | Does not complete all SUP-03 requirements or all five core controls |
 
 ```text
-Original V3 assessment workbook
+Original assessment workbook
 ├── What is in scope?
 ├── What requirements apply?
 ├── What evidence is provided?
@@ -29,7 +29,7 @@ Generated monitoring report
 
 ## 2. Identifier glossary
 
-These are exercise-specific labels, not official Okta control numbers. The expansions below are practical shorthand based on how the prefixes are used, not a separately defined formal acronym standard.
+These are exercise-specific labels, not official Okta control numbers. The expansions below are practical shorthand, not a separately defined formal acronym standard. The numeric suffix identifies a record or rule; it is not a severity or effectiveness score.
 
 | Identifier | Meaning in this exercise | Example |
 |---|---|---|
@@ -42,8 +42,6 @@ These are exercise-specific labels, not official Okta control numbers. The expan
 | `ING` | Collector receipt ID | `ING-01014` |
 | `ALERT` | Alert record ID | `ALERT-002` |
 | `ATT` | Attachment ID | `ATT-0001` |
-
-The numeric suffix identifies a record or rule; it is not a severity or effectiveness score.
 
 ## 3. Control hierarchy
 
@@ -74,17 +72,12 @@ A successful DET-02 test supports one component of SUP-03. It does not establish
 
 ## 4. Where to find the exercise requirements
 
-In the original V3 workbook, open `Control Requirements`.
+In the workbook, open `Control Requirements`.
 
 - Column A: control ID.
 - Column F: `Fictional testing criterion` — the requirement being evaluated.
 - Column G: `Procedure / limitation`.
 - Column H: evidence references.
-- For SUP-03 specifically: row 4; criterion cell `F4`.
-
-### SUP-03 criterion — original wording
-
-> Cover both file event types and identifier semantics; validate export coverage and reconcile replacements. IOC queries must search both types. Fictional SLAs: SIEM receipt within 15 minutes and alert within 5 minutes of qualifying receipt. DET-01 successful interactive service login; DET-02 fifth successful file download/account/rolling 60 minutes, reset count after trigger. Both routes required.
 
 ### Monitoring requirements in plain language
 
@@ -100,7 +93,7 @@ In the original V3 workbook, open `Control Requirements`.
 
 Implementation convention: the current reconstruction includes an event exactly 60 minutes before the current event. This boundary convention is an analysis assumption, not an additional sentence in the original criterion. Distinct source events are counted, not distinct attachments.
 
-## 5. Original V3 workbook — all worksheets
+## 5. Original workbook — all worksheets
 
 | Worksheet | Purpose |
 |---|---|
@@ -372,6 +365,3 @@ Not yet completed by the reporter
 └── The remaining core controls and optional extensions
 ```
 
-## Source basis
-
-This guide was prepared from the original V3 workbook, its README, the uploaded analysis script, the reporting-script structure, and the run results shared in the project conversation. Exact criteria above are reproduced from the workbook. Navigation explanations and workflow recommendations are supporting guidance, not additional fictional policy requirements.
