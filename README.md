@@ -17,6 +17,7 @@ and executive communication.
 - [ai-prompt-work](ai-prompt-work/)
 - [cybersecurity-case-studies](cybersecurity-case-studies/)
 - [gt-case-studies](gt-case-studies/)
+- [grc-risk-dashboard-powerbi](grc-risk-dashboard-powerbi/)
 
 ## Selected Work
 
@@ -24,7 +25,7 @@ and executive communication.
 |---|---|---|
 | Cyber Risk Assessment | Scenario analysis, control evaluation, and risk treatment recommendations | Coming soon |
 | Policy Exception Governance | Decision rights, compensating controls, and monitoring | Coming soon |
-| Executive Risk Reporting | Risk indicators, prioritization, and leadership communication | Coming soon |
+| Executive Risk Reporting | Risk indicators, prioritization, and leadership communication | Available Now |
 | AI Prompt Work | Reusable AI prompts for structured practice and analysis, with an emphasis on evidence, accuracy, and professional judgment | Available Now
 | Case Studies | Past, Present, and Emerging Technology Case Studies | Available Now 
 
