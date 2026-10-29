@@ -4,7 +4,7 @@ An interactive Power BI dashboard that reports cybersecurity risk the way a Gove
 
 > **All data in this project is synthetic.** It was generated to model a fictional cybersecurity risk management company. No real organization, system or person is represented.
 
-[Executive Summary](Exported-dashboards/All_Dashboards.pdf)
+[Executive Summary](Exported-dashboards/ExecutiveSummary.pdf)
 
 ---
 
@@ -35,13 +35,13 @@ Every view responds to the same slicers (criticality, data classification, inter
 
 ### Control Coverage
 
-![Control Coverage](screenshots/control-coverage.png)
+[Control Coverage](Exported-dashboards/control-coverage.pdf)
 
 A heatmap of 16 security controls across four asset criticality tiers, with coverage by NIST CSF 2.0 Function and NIST SP 800-53 control family.
 
 ### Testing & Review Schedule
 
-![Testing & Review Schedule](screenshots/testing-review.png)
+[Testing & Review Schedule](Exported-dashboards/testing-review.pdf)
 
 Tester workload for the next six months, control test results by quarter, an overdue review queue sorted by age, and overdue rates by asset criticality.
 
