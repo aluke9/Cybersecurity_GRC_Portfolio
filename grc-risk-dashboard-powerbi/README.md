@@ -4,7 +4,7 @@ An interactive Power BI dashboard that reports cybersecurity risk the way a Gove
 
 > **All data in this project is synthetic.** It was generated to model a fictional cybersecurity risk management company. No real organization, system or person is represented.
 
-![Executive Summary](screenshots/executive-summary.png)
+![Executive Summary](Exported-dashboards/All_Dashboards.pdf)
 
 ---
 
