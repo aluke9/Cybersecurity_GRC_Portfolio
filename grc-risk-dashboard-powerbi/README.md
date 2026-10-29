@@ -101,7 +101,8 @@ Assets are classified by **criticality** (Mission Critical, Business Critical, A
 
 | Document | Contents |
 |---|---|
-| [Build instructions](docs/README_PowerBI_Build_Instructions.md) | Full rebuild guide: Power Query transforms, data types, the date table, all 22 relationships, every measure with its DAX and purpose, KRI thresholds, formatting standards, page layouts and verification values |
+| [Project_summary](docs/Project_summary.md) | Power BI dashboard that reports cybersecurity risk the way a GRC team would: security control coverage across assets, control testing and review schedules, policy exceptions, vulnerabilities, and Key Risk Indicators (KRIs) with Red / Amber / Green status. |
+| [Build instructions](docs/Build_Instructions.md) | Full rebuild guide: Power Query transforms, data types, the date table, all 22 relationships, every measure with its DAX and purpose, KRI thresholds, formatting standards, page layouts and verification values |
 | [Quantitative metrics](docs/Quantitative_Metrics_README.md) | Financial risk and security operations tables: what each column means, how the data was generated, the ALE and ROSI method, and its assumptions and limitations |
 | [Control Coverage page](docs/Control_Coverage_Summary.md) | How the page was built, issues encountered and fixed, expected values and notes for presenting |
 | [Testing & Review page](docs/Testing_Review_Summary.md) | How the page was built, troubleshooting, expected values and notes for presenting |
