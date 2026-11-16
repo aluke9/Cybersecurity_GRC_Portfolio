@@ -59,9 +59,11 @@ Incidents caught by EDR were detected about 66 times faster than those reported 
 
 **Payments Processing is the priority in both views.** It has the highest phishing click rate (8.0%) and the largest residual expected loss on the Financial Risk page ($5.3M): two independent data sources pointing to the same targeted training recommendation.
 
-// ## Notes for presenting
-//
-// - Lead with the detection-source chart; it is the clearest link between control investment and operational results.
-// - Median, not average, is used for detection time. A handful of third-party reports took around 180 hours and would pull the average up to 31 hours, while the // typical incident took 7.8.
-// - Phishing results filter by **business unit and date only**, because phishing simulations are not tied to assets. Criticality, data classification and internet // -facing filters do not affect them.
-// - All figures are from synthetic data and illustrate the method, not a real environment.
+<!-- 
+## Notes for presenting
+
+- Lead with the detection-source chart; it is the clearest link between control investment and operational results.
+- Median, not average, is used for detection time. A handful of third-party reports took around 180 hours and would pull the average up to 31 hours, while the // typical incident took 7.8.
+- Phishing results filter by **business unit and date only**, because phishing simulations are not tied to assets. Criticality, data classification and internet // -facing filters do not affect them.
+- All figures are from synthetic data and illustrate the method, not a real environment.
+-->
