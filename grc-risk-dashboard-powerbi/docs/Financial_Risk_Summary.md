@@ -75,6 +75,7 @@ Control effectiveness at the current snapshot is each asset's average implementa
 
 The KRI color depends on the assumption; the conclusion that controls are worth far more than they cost does not.
 
+<!--
 ## Notes for presenting
 
 - Lead with the trend: residual expected loss fell 28% in seven quarters.
@@ -82,3 +83,4 @@ The KRI color depends on the assumption; the conclusion that controls are worth 
 - Say the 0.9 assumption out loud, and use the slider to show that ROSI stays at about 2x or higher across the whole range (2.0x at 0.5, 4.9x at 1.0).
 - **Residual ALE status is shown only for the whole program.** The $12M / $18M appetite applies to total risk, so with any asset filter selected, the card shows its value without a status color. A filtered $2.7M is not "within appetite"; it is simply a smaller number.
 - All figures are estimates from synthetic data and illustrate the method, not a real environment.
+-->
