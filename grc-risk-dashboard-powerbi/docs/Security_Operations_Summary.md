@@ -16,6 +16,17 @@ Shows how the security program performs day to day, answering:
 
 The page links operations back to control coverage: incidents on assets with working SIEM and EDR controls are found much faster.
 
+## Layout
+```
+| Title   | Card | Card | Card | Card | Card |                               |
+| Slicers | MTTD by Source   | Phishing Simulation Report Rate               |
+| Slicers |                  |                                               |
+| Slicers |                  |                                               |
+| Slicers | Incidents by Qtr | Phishing Click Rate by BU                     |
+| Note    | & Severity       |                                               |
+| Logo    |                  |                                               |
+```
+
 ## Data used
 
 | Table | What it provides |
