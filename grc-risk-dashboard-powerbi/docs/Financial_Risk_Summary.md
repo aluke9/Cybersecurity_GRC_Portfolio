@@ -33,6 +33,7 @@ The other pages measure risk in counts and percentages. This page puts it in **d
 Control effectiveness at the current snapshot is each asset's average implementation score from the control coverage data, so **the dollar figures move when control coverage moves**.
 
 ## Headline figures (no filters, assumption at 0.9)
+* The model assumes controls can remove at most 90% of risk
 
 | Measure | Value |
 |---|---|
