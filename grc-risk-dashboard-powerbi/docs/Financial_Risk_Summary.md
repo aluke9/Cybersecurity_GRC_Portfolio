@@ -16,6 +16,18 @@ The other pages measure risk in counts and percentages. This page puts it in **d
 - Do our controls **pay for themselves**?
 - How much do these answers depend on our **assumptions**?
 
+** Layout
+```
+|                          Title                                             |
+| Slicer  | Slicer | Slicer  | Slicer | Slicer | Logo |                      |
+| Card    | Card   | Card    | Card   | Card   | Card |                      |
+| Residual Expected Loss     | Residual Expected Loss                        |
+| by Qtr                     | by BU                                         |
+|                            |                                               |
+| Matrix                     | Assumed Risk Reduction                        |
+|                            | Slider                                        |
+```
+
 ## Data used
 
 | Table | What it provides |
